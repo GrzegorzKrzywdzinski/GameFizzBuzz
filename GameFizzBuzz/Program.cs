@@ -10,6 +10,7 @@ namespace GameFizzBuzz
     {
         static void Main(string[] args)
         {
+
         }
     }
 }
