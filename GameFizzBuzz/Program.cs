@@ -11,54 +11,60 @@ namespace GameFizzBuzz
     {
         static void Main(string[] args)
         {
-			try
-			{
-				FizzBuzz fizzBuzz = new FizzBuzz();
+            try
+            {
+                FizzBuzz fizzBuzz = new FizzBuzz();
 
-				Console.WriteLine("Gra FizzBuzz\nAby zakończyć grę wpisz liczbę 112.");
+                Console.WriteLine("Gra FizzBuzz\nAby zakończyć grę wpisz liczbę 112.");
 
-				while (true)
-				{
-					Console.WriteLine("Podaj liczbę:");
+                while (true)
+                {
+                    Console.WriteLine("Podaj liczbę:");
 
                     var number = GetNumber();
 
-					//zakończenie gry, przerwane pętli gdy użytkownik wprowadzi wartość 112
-					if (number == 112)
-						break;
+                    //zakończenie gry, przerwane pętli gdy użytkownik wprowadzi wartość 112
+                    if (number == 112)
+                        break;
 
                     Console.WriteLine(fizzBuzz.GetResult(number));
-                }
-				
 
-			}
-			catch (Exception ex)
-			{
-				Console.WriteLine(ex.Message);
-			}
+
+                    //if (number != 112)
+                    //{
+                    //    Console.WriteLine(fizzBuzz.GetResult(number));
+                    //}
+                    //else
+                    //    break;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
-		static int GetNumber()
-		{
-			try
-			{
-				while (true)
-				{
-					if (!int.TryParse(Console.ReadLine(), out var number))
-					{
-						Console.WriteLine("Wprowadziłeś błedne dane !!!\nPodaj liczbę:");
-						//jeżeli uzytkownik wprowadzi błędne dane, to instrukcja continuee spowoduje 
-						//że dalsza część kodu nie bedzie wykonywana, wrócimy do początku pętli 
-						continue;
-					}
-					return number;
-				}
-			}
-			catch (Exception ex)
-			{
-				Console.WriteLine(ex.Message);
-				return 0;
-			}
-		}
+        static int GetNumber()
+        {
+            try
+            {
+                while (true)
+                {
+                    if (!int.TryParse(Console.ReadLine(), out var number))
+                    {
+                        Console.WriteLine("Wprowadziłeś błedne dane !!!\nPodaj liczbę:");
+                        //jeżeli uzytkownik wprowadzi błędne dane, to instrukcja continuee spowoduje 
+                        //że dalsza część kodu nie bedzie wykonywana, wrócimy do początku pętli 
+                        continue;
+                    }
+                    return number;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return 0;
+            }
+        }
     }
 }
